@@ -88,6 +88,9 @@ html {
     @media (max-width: @screen-sm-max) {
         font-size: 16px;
     }
+    @media (max-width: @VP480) {
+        font-size: 12px;
+    }
 
     .box-sizing(border-box);
 
@@ -212,6 +215,7 @@ body {
     .description {
         p {
             background-color: transparent;
+            position: relative;
             color: #333533;
             font: 400 @n2~"/"@n2 @font2;
             letter-spacing: .01em;
@@ -243,104 +247,11 @@ body {
             // border-bottom: 0px;
         }
     }
-    .first-circle, .second-circle, .last-circle {
-        opacity: 0;
-        transition: all .4s;
-    }
     .last-circle {
-        margin-bottom: @n1;
-    }
-    .first-circle.in-view, .second-circle.in-view, .last-circle.in-view {
-        opacity: 1;
-    }
+        margin-bottom: @n4;
+    } 
 }
-.service-content {
-    @media (min-width: @screen-md-min) {
-    }
-    .col-xs-12 {
-        margin-right: 0;
-        margin-left: 0;
-    }
-    .final-circle {
-        opacity: 0;
-        transition: all .4s;
-        // @media (min-width: @screen-md-min) {
-        //     opacity: 1;
-        // }
-    }
-    .final-circle.in-view {
-        opacity: 1;
-    }
-    h1 {
-        background-color: transparent;
-        color: #333533;
-        font: 100 @n3~"/"@n2 @font1;
-        letter-spacing: .02em;
-        // margin-top: @n2;
-        text-align: center;
 
-        @media (min-width: @screen-md-min) {
-            background-color: #333533;
-            color: #ffe000;
-            font: 300 italic @n3~"/"@n2 @font1;
-            margin: 0;
-        }
-    }
-    .last-h1 {
-        margin-bottom: @n2;
-
-        @media (min-width: @screen-md-min) {
-            margin-bottom: 0;
-        }
-    }
-    p {
-        color: #333533;
-        font: 400 @n2~"/"@n2 @font2;
-        letter-spacing: .01em;
-        text-align: center;
-
-    }
-    .md-service-circle-container {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        margin-top: 295px;
-        z-index: 1000;
-        @media (min-width: @screen-md-min) {
-            margin-left: -175px;
-        }
-        @media (min-width: @VP1680) {
-            margin-left: -225px;
-            margin-top: 350px;
-        }
-
-        .md-service-circle {
-            content: url("../img/pella_circle_service.png");
-
-            &:hover {
-                content: url("../img/pella_circle_service_hover.png");
-                cursor: pointer;
-            }
-        }
-    }
-    .service-description {
-        margin-bottom: @n3;
-        p {
-            font: 300 @n1~"/"@n2 @font1;
-            margin-bottom: @n2;
-            text-align: center;
-
-            @media (min-width: @screen-md-min) {
-                background-color: transparent;
-                color: #333533;
-                font: 400 @n2~"/"@n2 @font2;
-                letter-spacing: .01em;
-                text-align: center;
-            }
-        }
-    }
-}
 .main-footer {
     background: url("../img/tweed.png");
     color: lightgray;
@@ -383,12 +294,22 @@ body {
     .contact-sales, .contact-service {
         text-align: center;
         margin-bottom: @n2;
+        li {
+            margin-left: 0px;
+            list-style-type: none;
+            &:first-child {
+                // border-bottom: 1px solid lightgray;
+            }
+        }
         h1 {
             font: 100 @n2 @font1;
             margin-bottom: 0;
         }
-        h2 {
+        li h2 {
             font: 100 @n1 @font1;
+            &:last-child {
+                font-size: (@n2 / 2);
+            }
         }
         hr {
             width: 15%;
@@ -430,18 +351,7 @@ body {
                 margin-top: (@n1 / 2);
             }
     }
-    table {
-        font: 300 @n1 @font1;
-        width: 100%;
-        th {
-            text-align: center;
-        }
-        tr {
-            &:hover {
-                color: #333533;
-            }
-        }
-    }
+    
     .copy {
         background-color: #333533;
         font: 100 @n1 @font2;
@@ -449,8 +359,8 @@ body {
         text-align: center;
     }
 }
-.scroll-up, .scroll-down {
-    opacity: 0;
+.scroll-up, .scroll-down, .description-scroll-down {
+    opacity: 1;
     transition: all .4s;
     font-size: @n2;
     text-align: center;
@@ -459,7 +369,7 @@ body {
     left: 0;
     right: 0;
     z-index: 100;
-    pointer-events: none;
+    // pointer-events: none;
     cursor: default;
 
     a {
@@ -536,11 +446,8 @@ body {
             .projectHoverReveal {
                 top: 136px;
                 visibility: visible;
-                @media (max-width: @VP480) {
+                @media (min-height: @VP480) {
                     top: 85px;
-                }
-                @media (min-width: @VP768) {
-                    top: 185px;
                 }
                 @media (min-width: @VP1024) {
                     top: 136px;
@@ -566,4 +473,9 @@ h1.projectHoverReveal {
     transition: top .5s ease;
     color: #ffe000;
     visibility: hidden;
+}
+iframe {
+    @media (max-width: @VP768) {
+        width: 300px;
+    }
 }

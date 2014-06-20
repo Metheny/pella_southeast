@@ -42,83 +42,35 @@ $(function(){
     });
 });
 
-$(function() {
-    function isScrolledIntoView(elem) {
-        var docViewTop = $(window).scrollTop();
-        var docViewBottom = docViewTop + $(window).height();
+// $(function() {
+//     function isTopScrolledIntoView(elem) {
+//         var docViewTop = $(window).scrollTop();
+//         var docViewBottom = docViewTop + $(window).height();
 
-        var elemTop = $(elem).offset().top;
-        var elemBottom = elemTop + $(elem).height();
-        if ((elem == '.main-headings .description')) {
-            return (((elemBottom) <= (docViewBottom)) && ((elemTop) >= (docViewTop + 200)));
-        } else {
-            return (((elemBottom) <= (docViewBottom + 300)) && ((elemTop + 300) >= (docViewTop)));     
-        }
+//         var elemTop = $(elem).offset().top;
+//         var elemBottom = elemTop + $(elem).height();
         
-    }
-
-    var firstCircle = $('.first-circle'),
-    firstCircleScrollUp = $('.first-circle .scroll-up'),
-    firstCircleScrollDown = $('.first-circle .scroll-down'),
-    lastCircle = $('.last-circle'),
-    lastCircleScrollUp = $('.last-circle .scroll-up'),
-    lastCircleScrollDown = $('.last-circle .scroll-down'),
-    finalCircle = $('.final-circle'),
-    finalCircleScrollUp = $('.final-circle .scroll-up'),
-    finalCircleScrollDown = $('.final-circle .scroll-down'),
-    secondCircle = $('.second-circle');
-
-    $(window).scroll(function() {
-        if (isScrolledIntoView('.first-circle') === true) {
-            firstCircle.addClass('in-view');
-            firstCircleScrollUp.addClass('in-view');
-            firstCircleScrollDown.addClass('in-view');
-        } else {
-            firstCircle.removeClass('in-view');
-            firstCircleScrollUp.removeClass('in-view');
-            firstCircleScrollDown.removeClass('in-view');
-        }
-        if(isScrolledIntoView('.last-circle') === true) {
-            lastCircle.addClass('in-view');
-            lastCircleScrollUp.addClass('in-view');
-            lastCircleScrollDown.addClass('in-view');
-        } else {
-            lastCircle.removeClass('in-view');
-            lastCircleScrollUp.removeClass('in-view');
-            lastCircleScrollDown.removeClass('in-view');
-        }
-        if (isScrolledIntoView('.second-circle') === true) {
-            secondCircle.addClass('in-view');
-        } else {
-            secondCircle.removeClass('in-view');
-        }
-        if(isScrolledIntoView('.final-circle') === true) {
-            finalCircle.addClass('in-view');
-            finalCircleScrollUp.addClass('in-view');
-            finalCircleScrollDown.addClass('in-view');
-        } else {
-            finalCircle.removeClass('in-view');
-            finalCircleScrollUp.removeClass('in-view');
-            finalCircleScrollDown.removeClass('in-view');
-        }
-
-        if ((isScrolledIntoView('.first-circle') === true) && (isScrolledIntoView('.last-circle') === true)) {
-            firstCircleScrollUp.addClass('in-view');
-            firstCircleScrollDown.removeClass('in-view');
-            lastCircleScrollUp.removeClass('in-view');
-            lastCircleScrollDown.addClass('in-view');
-        } //else {
-        //     firstCircleScrollUp.removeClass('in-view');
-        //     lastCircleScrollDown.removeClass('in-view');
-        // }
-        //Scroll Chevrons
+//         return ((elemTop) >= (docViewTop));
         
-        var descriptionScrollDown =  $('.description > .col-xs-12.col-md-8 > .scroll-down');
-        if (isScrolledIntoView('.main-headings .description') === true) {
-           descriptionScrollDown.addClass('in-view');
-        } else {
-            descriptionScrollDown.removeClass('in-view');
-        }
-    });
+//     }
+//     function isBottomScrolledIntoView(elem) {
+//         var docViewTop = $(window).scrollTop();
+//         var docViewBottom = docViewTop + $(window).height();
 
-    });
+//         var elemTop = $(elem).offset().top;
+//         var elemBottom = elemTop + $(elem).height();
+        
+//         return ((elemBottom) <= (docViewBottom));
+        
+//     }
+
+//     var descriptionScrollDown = $('.description-scroll-down');
+
+//     $(window).scroll(function() {
+//         if (isBottomScrolledIntoView('.description') === true) {
+//             descriptionScrollDown.addClass('appear');
+//         } else { 
+//             descriptionScrollDown.removeClass('appear');
+//         }
+//     });
+// });
