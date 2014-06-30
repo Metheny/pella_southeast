@@ -4,7 +4,7 @@ var source = require("vinyl-source-stream");
 var sass = require("gulp-ruby-sass");
 var jshint = require("gulp-jshint");
 var stylish = require("jshint-stylish");
-var csslint = require("gulp-csslint");
+var csslint = require("gulp-csslint");g
 
 gulp.task("default", function () {
 
